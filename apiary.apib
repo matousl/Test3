@@ -1,0 +1,79 @@
+FORMAT: 1A
+HOST: http://webgis.nature.cz/aopkrest/OOP/
+
+# AOPK ČR - OOP
+
+Rozhraní pro získávání informací o **Orgánech ochrany přírody AOPK ČR  (OOP)**.
+
+## OOP - filtrování dle názvu [/filter/{pattern}?f={f}]
+
++ Parameters
+    + pattern: Čechy (string, optional) - řetězec pro vyhledání
+    + f (string, optional) - formát výstupu
+        + Default: html
+        + Members
+            + json
+            + html
+            + xml
+
+            
+### Přehled dotazů [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[KartaOOP])
+    + Attributes (array[KartaOOP])
+       
+        
+
+## OOP - karta dle ID [/{kod}?f={f}]
+
++ Parameters
+    + kod: 854 (number) - Kod OOP
+    + f (string, optional) - formát výstupu
+        + Default: html
+        + Members
+            + json
+            + html
+            + xml
+
+            
+### Přehled dotazů [GET]
+
++ Response 200 (application/json)
+    + Attributes (KartaOOP)
+     
+
+
+
+## OOP - přehled změn [/updateinfo?f={f}]
+
++ Parameters
+    + f (string, optional) - formát výstupu
+        + Default: html
+        + Members
+            + json
+            + html
+            + xml
+
+            
+### Přehled dotazů [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[ZmenaOOP])
+    + Attributes (array[ZmenaOOP])
+   
+
+# Data structures
+
+## KartaOOP
++ Kod: 854 (number) - kód orgánu ochrany přírody AOPK ČR
++ Nazev: AOPK ČR - RP Liberecko (string) - Název orgánu ochrany přírody AOPK ČR
++ Web: http://liberecko.ochranaprirody.cz/ (string) - odkaz na internetovoou stránku
++ IdAopkOop: 86 (number) - ID Regionálního pracoviště AOPK ČR !!!!Zkontrolovat!!!!
+
+
+## ZmenaOOP
++ Kod: 63 (number) - kód lokality v ústředním seznamu ochrany přírody
++ IdAopkOop: 86 (number) - ID Regionálního pracoviště AOPK ČR !!!!Zkontrolovat!!!!
++ ZmenaT: `2019-01-09` (string) - datum poslední změny tabelárních dat lokality
++ ZmenaG: `2019-01-10` (string) - datum poslední změny zákresu lokality
